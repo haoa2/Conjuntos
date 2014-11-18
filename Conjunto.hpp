@@ -11,8 +11,8 @@
 
 // Includes Necesarios
 #include <vector>                   // Vectores.
-#include <string>
-#include <ostream>
+#include <string>                   // Manejo de Cadenas de Caracteres (Strings)
+#include <ostream>                  // Flujos de E/S
 #include "ExcepcionConjunto.hpp"    // Excepciones de Conjuntos.
 
 /*
@@ -42,31 +42,36 @@ class Conjunto
         std::string getNombre() const { return nom; }       // Obtiene el nombre del Conjunto.
 
         // Sets
-        void setNombre(std::string);    // Coloca el nombre al Conjunto
+        void setNombre(std::string);                // Coloca el nombre al Conjunto
 
         // Funciones Públicas.
 
-        void agregar(P);				     // Agrega un elemento al Conjunto.
-        void agregar(const Conjunto&);		         // Agrega un Conjunto al Conjunto
+        void agregar(P);				            // Agrega un elemento al Conjunto.
+        void agregar(const Conjunto&);		        // Agrega un Conjunto al Conjunto
         // Operaciones con Conjuntos
-        Conjunto Union(Conjunto) const;            // Unión de 2 Conjuntos.
-        Conjunto Interseccion(Conjunto) const;     // Intersección de 2 Conjuntos.
-        Conjunto Diferencia(Conjunto) const;       // Diferencia de 2 Conjuntos.
-        Conjunto Complemento(Conjunto) const;      // Complemento de un Conjunto contra el Conjuntos Universo.
+        Conjunto Union(Conjunto) const;             // Unión de 2 Conjuntos.
+        Conjunto Interseccion(Conjunto) const;      // Intersección de 2 Conjuntos.
+        Conjunto Diferencia(Conjunto) const;        // Diferencia de 2 Conjuntos.
+        Conjunto Complemento(Conjunto) const;       // Complemento de un Conjunto contra el Conjuntos Universo.
         // Comprobaciones entre Conjuntos
-        bool Igual(Conjunto) const;                // Igualdad de 2 Conjuntos.
-        bool Subconjunto(Conjunto) const;          // Subconjunto del Conjunto Actual.
-        bool SubconjuntoPropio(Conjunto) const;    // Subconjunto Propio del Actual.
+        bool Igual(Conjunto) const;                 // Igualdad de 2 Conjuntos.
+        bool Subconjunto(Conjunto) const;           // Subconjunto del Conjunto Actual.
+        bool SubconjuntoPropio(Conjunto) const;     // Subconjunto Propio del Actual.
         // Sintáxis Matemática
-        bool pertenece(P) const;             // Para detectar si un elemento P pertenece al conjunto actual.
-        bool pertenece(Conjunto) const;      // Para detectar si un conjunto P pertenece al conjunto actual.
+        bool pertenece(P) const;                    // Para detectar si un elemento P pertenece al conjunto actual.
+        bool pertenece(Conjunto) const;             // Para detectar si un conjunto P pertenece al conjunto actual.
 
         // Sobrecarga de Operadores
-        Conjunto& operator=(const Conjunto&);   // Asignación
-        bool operator==(const Conjunto&) const;       // Igualdad. En realidad, la comprobación de arriba recae a esta.
-        bool operator!=(const Conjunto&) const;       // Desigualdad. La negación de la igualdad.
-                                                // Operador  para imprimir.
+        Conjunto& operator=(const Conjunto&);       // Asignación
+        bool operator==(const Conjunto&) const;     // Igualdad. En realidad, la comprobación de arriba recae a esta.
+        bool operator!=(const Conjunto&) const;     // Desigualdad. La negación de la igualdad.
 
+        /*
+            Operador  para imprimir.
+
+            Debe de ir aquí la implementación, porque es Friend, y no necesariamente pertenece
+            a la clase.
+        */
         friend std::ostream& operator<<(std::ostream& os,const  Conjunto<P>& con)
         {
             if (con.no_elementos == 0)
@@ -113,19 +118,19 @@ class Conjunto
 
     private:
         // Datos Miembro.
-        std::string nom;
-        std::vector<P> vec;
-        std::vector< Conjunto > conjs;
-        int no_elementos;
+        std::string nom;                // Nombre del Conjunto
+        std::vector<P> vec;             // Vector con los elementos únicos.
+        std::vector< Conjunto > conjs;  // Vector con los elementos Conjuntos dentro del Conjunto.
+        int no_elementos;               // Número de Elementos.
         
     protected:
         // Borrar Todo.
         virtual void limpiar()
         {
-            vec.clear();
-            conjs.clear();
-            no_elementos = 0;
-            nom = "";
+            vec.clear();        // Limpiar el vector de elementos.
+            conjs.clear();      // Limpiar el vector conjuntos
+            no_elementos = 0;   // Reiniciar el no_elementos.
+            nom = "";           // Borrar el nombre del Conjunto.
         }
 };
 
@@ -139,12 +144,14 @@ class Conjunto
 
     Eso dicen.
 */
+// Destructor de la Clase.
 template <class P>
 Conjunto<P>::~Conjunto()
 {
     limpiar();
 }
 
+// Constructor con un parámetro, el nombre.
 template <class P>
 Conjunto<P>::Conjunto(std::string n)
 {
@@ -152,6 +159,7 @@ Conjunto<P>::Conjunto(std::string n)
     setNombre(n);
 }
 
+// Constructor con Arrays, tamaño del Array y nombre del Conjunto.
 template <class P>
 Conjunto<P>::Conjunto(P* arr, int tam, std::string n)
 {
@@ -163,6 +171,7 @@ Conjunto<P>::Conjunto(P* arr, int tam, std::string n)
     setNombre(n);
 }
 
+// Constructor con un Vector y con el nombre.
 template <class P>
 Conjunto<P>::Conjunto(const std::vector<P>& v, std::string n)
 {
@@ -171,6 +180,7 @@ Conjunto<P>::Conjunto(const std::vector<P>& v, std::string n)
     no_elementos = v.size();
 }
 
+// Agrega un elemento único.
 template <class P>
 void Conjunto<P>::agregar(P temp)
 {
@@ -181,6 +191,7 @@ void Conjunto<P>::agregar(P temp)
     }
 }
 
+// Agrega un Conjunto único al Conjunto actual.
 template <class P>
 void Conjunto<P>::agregar(const Conjunto<P>& con)
 {
@@ -191,6 +202,7 @@ void Conjunto<P>::agregar(const Conjunto<P>& con)
     }
 }
 
+// Comprueba si un elemento pertenece al Conjunto actual.
 template <class P>
 bool Conjunto<P>::pertenece(P x) const
 {
@@ -202,6 +214,7 @@ bool Conjunto<P>::pertenece(P x) const
     return false;
 }
 
+// Comprueba si un Conjunto pertenece al Conjunto Actual.
 template <class P>
 bool Conjunto<P>::pertenece(Conjunto<P> x) const
 {
@@ -215,6 +228,7 @@ bool Conjunto<P>::pertenece(Conjunto<P> x) const
     return false;
 }
 
+// Cambia el nombre del Conjunto.
 template <class P>
 void Conjunto<P>::setNombre(std::string n)
 {
@@ -454,4 +468,7 @@ Conjunto<P> Conjunto<P>::Complemento(Conjunto<P> p) const
     return temp;
 }
 
-#endif // CONJUNTO_H
+#endif // CONJUNTO_HPP
+/*
+    Creado por: Humberto Alejandro Ortega Alcocer 2014 - <humbertowoody@gmail.com>
+*/
