@@ -12,12 +12,12 @@
 #include <string>
 #include <sstream>
 
-#define NUMERO_ERRORES					4
-#define ERROR_DESCONOCIDO 				"0 ¡Error Desconocido!"
-#define ERROR_NOMBRE_DEMASIADO_CORTO	"1 Nombre del Conjunto demasiado Corto ó Nulo."
-#define ERROR_NOMBRE_DEMASIADO_LARGO	"2 Nombre del Conjunto demasiado Largo."
-#define ERROR_CONJUNTO_VACIO 			"3 El Conjunto se encuentra vacío."
-#define ERROR_CONJUNTO_UNIVERSO_VACIO 	"4 El Conjunto Universo proporcionado se encuentra vacío."
+#define NUMERO_ERRORES                  4
+#define ERROR_DESCONOCIDO               "0 ¡Error Desconocido!"
+#define ERROR_NOMBRE_DEMASIADO_CORTO    "1 Nombre del Conjunto demasiado Corto ó Nulo."
+#define ERROR_NOMBRE_DEMASIADO_LARGO    "2 Nombre del Conjunto demasiado Largo."
+#define ERROR_CONJUNTO_VACIO            "3 El Conjunto se encuentra vacío."
+#define ERROR_CONJUNTO_UNIVERSO_VACIO   "4 El Conjunto Universo proporcionado se encuentra vacío."
 
 class ExcepcionConjunto
 {
