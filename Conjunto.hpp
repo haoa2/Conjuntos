@@ -76,25 +76,34 @@ class Conjunto
             else
             {
                 os << con.nom << " = { ";
-                for (int i = 0; i < con.vec.size()-1; ++i)
+                if(con.vec.size() > 0)
                 {
-                    os << con.vec.at(i) << ", ";
-                }
-                
-                // Comprobamos si tendrá conjuntos dentro.
-                if (con.conjs.empty())
-                {
-                    os << con.vec.at(con.vec.size()-1) << " }";
+                    for (int i = 0; i < con.vec.size()-1; ++i)
+                    {
+                        os << con.vec.at(i) << ", ";
+                    }
+                    // Comprobamos si tendrá conjuntos dentro.
+                    if (con.conjs.empty())
+                    {
+                        os << con.vec.at(con.vec.size()-1) << " }";
+                    }
+                    else
+                    {
+                        os << con.vec.at(con.vec.size()-1);
+                        for (int i = 0; i < con.conjs.size(); ++i)
+                        {
+                            os << ", { " << con.conjs.at(i).getNombre() << " }";
+                        }
+                        os << " }"; 
+                    }
                 }
                 else
                 {
-                    os << con.vec.at(con.vec.size()-1);
-        
-                    for (int i = 0; i < con.conjs.size(); ++i)
+                    for (int i = 0; i < con.conjs.size()-1; ++i)
                     {
-                        os << ", { " << con.conjs.at(i).getNombre() << " }";
+                        os << "{ " << con.conjs.at(i).getNombre() << " }, ";
                     }
-                    os << " }"; 
+                    os << "{ " << con.conjs.at(con.conjs.size()-1).getNombre() << " } }";
                 }
         
             }

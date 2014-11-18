@@ -87,9 +87,13 @@ int main(int argc, char const *argv[])
 
 		c1.agregar(c2);
 		c2.agregar(c1);
+        c2.agregar(c2);
 
 		std::cout << c1 << std::endl;
 		std::cout << c2 << std::endl;
+
+        std::cout << "\t" << nom1 << " subconjunto (ahora con conjuntos) de " << nom2 << ":" << std::endl;
+        std::cout << "\t\t-" << (c1.Subconjunto(c2) ? "Si." : "No." ) << std::endl;
 	}
 	catch(ExcepcionConjunto& c)
 	{
