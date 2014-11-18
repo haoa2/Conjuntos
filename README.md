@@ -25,7 +25,7 @@ La sintáxis básica es la siguiente:
 Una referencia rápida de la librería es la siguiente:
 
     +--------------+------------------------+----------+---------------------------------+
-    | OPERACIÓN/   |        MÉTODO          | REGRESA  |           EXPLICACION           |
+    | OPERACIÓN/   |        MÉTODO          | REGRESA  |           EXPLICACIÓN           |
     | COMPROBACIÓN |                        |          |                                 |
     +---------------------------------------+----------+---------------------------------+
     | Unión        | Union(Conjunto)        | Conjunto | Devuelve el conjunto resultante |
