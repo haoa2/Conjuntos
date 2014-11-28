@@ -43,20 +43,21 @@ Una referencia rápida de la librería es la siguiente:
     | Igualdad     | Igualdad(Conjunto)     | bool     | Devuelve cierto, si los conjun- |
     |              |                        |          | tos son iguales, falso en caso  |
     |              |                        |          | contrario.                      |
-    +--------------+------------------------+--------------------------------------------+
+    +--------------+------------------------+----------+---------------------------------+
     | Suconjunto   | Subconjunto(Conjunto)  | bool     | Devuelve cierto, si el conjunto |
     |              |                        |          | es un subconjunto del conjunto  |
     |              |                        |          | proporcionado, devuelve falso   |
     |              |                        |          | en caso contrario.              |
-    +--------------+---------------------------------------------------------------------+
+    +--------------+------------------------+----------+---------------------------------+
     | Suconjunto   | SuconjuntoPropio(Conj  | bool     | Devuelve cierto, si el conjunto |
     | Propio       | unto)                  |          | es un subconjunto propio del    |
     |              |                        |          | conjunto proporcionado, falso   |
     |              |                        |          | en caso contrario.              |
-    +--------------+---------------------------------------------------------------------+
+    +--------------+------------------------+----------+---------------------------------+
 
 
-Un ejemplo del uso de la librería sería en Ejemplo.cpp
+Los ejemplos del uso de la librería se encuentran dentro de la carpeta "Ejemplos" donde se
+abarcan todas las funciones por separado y en conjunto.
 
 Creado por:
     
