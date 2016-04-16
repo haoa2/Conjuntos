@@ -5,12 +5,12 @@ Proyecto de una librería para el manejo de Conjuntos matemáticos adecuadamente
 
 Permite el uso de las siguientes operaciones:
 
-    -Unión
-    -Intersección
-    -Diferencia
-    -Doferencia Simétrica
-    -Complemento
-    -Producto Cartesiano*
+ - Unión
+ - Intersección
+ - Diferencia
+ - Doferencia Simétrica
+ - Complemento
+ - Producto Cartesiano*
 
 Permite realizar las comprobaciones pertinentes:
     
