@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Conjunto.hpp"
+#include "../Conjunto.hpp"
 
 
 int main(int argc, char const *argv[])
@@ -71,6 +71,10 @@ int main(int argc, char const *argv[])
 		std::cout << "\t" << c1.Interseccion(c2) << std::endl;
 		std::cout << "Diferencia:" << std::endl;
 		std::cout << "\t" << c1.Diferencia(c2) << std::endl;
+		std::cout << "Diferencia (Con operador):" << std::endl;
+		std::cout << "\t" << c1-c2 << std::endl;
+		std::cout << "Diferencia Simétrica:" << std::endl;
+		std::cout << "\t" << c1.DiferenciaSim(c2) << std::endl;
 		std::cout << "Complemento:" << std::endl;
 		std::cout << "\t" << c1.Complemento(Universo) << std::endl << std::endl;
 

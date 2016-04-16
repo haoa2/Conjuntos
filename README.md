@@ -8,7 +8,9 @@ Permite el uso de las siguientes operaciones:
     -Unión
     -Intersección
     -Diferencia
+    -Doferencia Simétrica
     -Complemento
+    -Producto Cartesiano*
 
 Permite realizar las comprobaciones pertinentes:
     
@@ -36,6 +38,14 @@ Una referencia rápida de la librería es la siguiente:
     +--------------+------------------------+----------+---------------------------------+
     | Diferencia   | Diferencia(Conjunto)   | Conjunto | Devuelve el conjunto resultante |
     |              |                        |          | de la operación Diferencia.     |
+    +--------------+------------------------+----------+---------------------------------+
+    | Diferencia   | DiferenciaSim(Conjunto)| Conjunto | Devuelve el conjunto resultante |
+    | Simétrica    |                        |          | de la Diferencia Simétrica      |
+    +--------------+------------------------+----------+---------------------------------+
+    | Producto     | ProductoCart(Conjunto) | Conjunto | Devuelve el conjunto resultante |
+    | Cartesiano   |                        |          | de la operación Producto Carte- |
+    |              |                        |          | siano. (Sus elementos se convi- |
+    |              |                        |          | erten en Pairs (STL)).          |
     +--------------+------------------------+----------+---------------------------------+
     | Complemento  | Complemento(Conjunto)  | Conjunto | Devuelve el conjunto resultante |
     |              |                        |          | de la operación Complemento.    |

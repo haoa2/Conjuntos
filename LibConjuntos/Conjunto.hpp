@@ -48,15 +48,20 @@ class Conjunto
 
         void agregar(P);				            // Agrega un elemento al Conjunto.
         void agregar(const Conjunto&);		        // Agrega un Conjunto al Conjunto
+        
         // Operaciones con Conjuntos
         Conjunto Union(Conjunto) const;             // Unión de 2 Conjuntos.
         Conjunto Interseccion(Conjunto) const;      // Intersección de 2 Conjuntos.
         Conjunto Diferencia(Conjunto) const;        // Diferencia de 2 Conjuntos.
         Conjunto Complemento(Conjunto) const;       // Complemento de un Conjunto contra el Conjuntos Universo.
+        Conjunto DiferenciaSim(Conjunto) const;     // Diferencia simétrica entre dos conjuntos
+        Conjunto ProductoCart(Conjunto) const;      // Producto Cartesiano de dos conjuntos
+        
         // Comprobaciones entre Conjuntos
         bool Igual(Conjunto) const;                 // Igualdad de 2 Conjuntos.
         bool Subconjunto(Conjunto) const;           // Subconjunto del Conjunto Actual.
         bool SubconjuntoPropio(Conjunto) const;     // Subconjunto Propio del Actual.
+        
         // Sintáxis Matemática
         bool pertenece(P) const;                    // Para detectar si un elemento P pertenece al conjunto actual.
         bool pertenece(Conjunto) const;             // Para detectar si un conjunto P pertenece al conjunto actual.
@@ -65,6 +70,7 @@ class Conjunto
         Conjunto& operator=(const Conjunto&);       // Asignación
         bool operator==(const Conjunto&) const;     // Igualdad. En realidad, la comprobación de arriba recae a esta.
         bool operator!=(const Conjunto&) const;     // Desigualdad. La negación de la igualdad.
+        Conjunto operator-(const Conjunto&) const;  // Operador binario de diferencia.
 
         /*
             Operador  para imprimir.
@@ -144,6 +150,7 @@ class Conjunto
 
     Eso dicen.
 */
+
 // Destructor de la Clase.
 template <class P>
 Conjunto<P>::~Conjunto()
@@ -247,6 +254,7 @@ void Conjunto<P>::setNombre(std::string n)
 }
 
 // Sobrecarga de Operadores
+
 // Asignación
 template <class P>
 Conjunto<P>& Conjunto<P>::operator=(const Conjunto<P>& otro)
@@ -298,7 +306,15 @@ bool Conjunto<P>::operator==(const Conjunto<P>& otro) const
     return true;
 }
 
+// Operador Binario de diferencia
+template <class P>
+Conjunto<P> Conjunto<P>::operator-(const Conjunto<P>& otro) const
+{
+    return this->Diferencia(otro);
+}
+
 // Funciones Miembro
+
 // Igualdad
 template <class P>
 bool Conjunto<P>::Igual(Conjunto<P> c) const
@@ -434,6 +450,23 @@ Conjunto<P> Conjunto<P>::Diferencia(Conjunto<P> p) const
         }
     }
     return temp;
+}
+
+// Diferencia Simétrica
+template <class P>
+Conjunto<P> Conjunto<P>::DiferenciaSim(Conjunto<P> p) const
+{
+    Conjunto<P> res;
+    res = this->Diferencia(p);
+    res = res.Union(p.Diferencia(*this));
+    return res;
+}
+
+// Producto Cartesiano
+template <class P>
+Conjunto<P> Conjunto<P>::ProductoCart(Conjunto<P> p) const
+{
+    
 }
 
 // Complemento
