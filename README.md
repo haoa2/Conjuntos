@@ -5,18 +5,25 @@ Proyecto de una librería para el manejo de Conjuntos matemáticos adecuadamente
 
 Permite el uso de las siguientes operaciones:
 
+<<<<<<< HEAD
     -Unión
     -Intersección
     -Diferencia
     -Doferencia Simétrica
     -Complemento
     -Producto Cartesiano*
+=======
+ - Unión
+ - Intersección
+ - Diferencia
+ - Complemento
+>>>>>>> ad1a994c2f95839915300917bd5b569b30cb0e03
 
 Permite realizar las comprobaciones pertinentes:
     
-    -Igualdad
-    -Subconjunto
-    -Subconjunto Propio
+ - Igualdad
+ - Subconjunto
+ - Subconjunto Propio
 
 La sintáxis básica es la siguiente:
 
@@ -26,6 +33,7 @@ La sintáxis básica es la siguiente:
 
 Una referencia rápida de la librería es la siguiente:
 
+<<<<<<< HEAD
     +--------------+------------------------+----------+---------------------------------+
     | OPERACIÓN/   |        MÉTODO          | REGRESA  |           EXPLICACIÓN           |
     | COMPROBACIÓN |                        |          |                                 |
@@ -64,14 +72,26 @@ Una referencia rápida de la librería es la siguiente:
     |              |                        |          | conjunto proporcionado, falso   |
     |              |                        |          | en caso contrario.              |
     +--------------+------------------------+----------+---------------------------------+
+=======
+| OPERACIÓN/COMPROBACIÓN   |        MÉTODO          | REGRESA  |           EXPLICACIÓN                      
+|--------------|------------------------|----------|----------------------------------
+| Unión        | Union(Conjunto)        | Conjunto | Devuelve el conjunto resultante de la operación Unión.
+| Intersección | Interseccion(Conjunto) | Conjunto | Devuelve el conjunto resultante de la operación Intersección.
+| Diferencia   | Diferencia(Conjunto)   | Conjunto | Devuelve el conjunto resultante de la operación Diferencia.
+| Complemento  | Complemento(Conjunto)  | Conjunto | Devuelve el conjunto resultante de la operación Complemento. 
+| Igualdad     | Igualdad(Conjunto)     | bool     | Devuelve cierto, si los conjuntos son iguales, falso en caso contrario.
+| Suconjunto   | Subconjunto(Conjunto)  | bool     | Devuelve cierto, si el conjunto es un subconjunto del conjunto proporcionado, devuelve falso en caso contrario.
+| Suconjunto Propio | SuconjuntoPropio(Conjunto) | bool | Devuelve cierto, si el conjunto es un subcojunto propio del conjunto proporcionado, falso en caso contrario.
+>>>>>>> ad1a994c2f95839915300917bd5b569b30cb0e03
 
+## Ejemplos
 
 Los ejemplos del uso de la librería se encuentran dentro de la carpeta "Ejemplos" donde se
 abarcan todas las funciones por separado y en conjunto.
 
-Creado por:
+## Autor
     
-    Humberto Alejandro Ortega Alcocer 2014 
-    <humbertowoody@gmail.com>
+**Humberto Alejandro Ortega Alcocer 2014**
+<humbertowoody@gmail.com>
 
 Libre Uso. 
