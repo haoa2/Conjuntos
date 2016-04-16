@@ -466,7 +466,7 @@ Conjunto<P> Conjunto<P>::DiferenciaSim(Conjunto<P> p) const
 template <class P>
 Conjunto<P> Conjunto<P>::ProductoCart(Conjunto<P> p) const
 {
-    
+     
 }
 
 // Complemento
