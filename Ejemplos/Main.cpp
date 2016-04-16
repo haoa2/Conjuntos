@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../Conjunto.hpp"
+#include "../LibConjuntos/Conjunto.hpp"
 
 
 int main(int argc, char const *argv[])
@@ -76,7 +76,13 @@ int main(int argc, char const *argv[])
 		std::cout << "Diferencia Simétrica:" << std::endl;
 		std::cout << "\t" << c1.DiferenciaSim(c2) << std::endl;
 		std::cout << "Complemento:" << std::endl;
-		std::cout << "\t" << c1.Complemento(Universo) << std::endl << std::endl;
+		std::cout << "\t" << c1.Complemento(Universo) << std::endl;
+		// TODO: Fix Producto Cartesiano
+		/*
+		std::cout << "Producto Cartesiano:" << std::endl;
+		std::cout << "\t" << c1.ProductoCart(c2) << std::endl << std::endl;
+		*/
+		std::cout << std::endl;
 
 		std::cout << "Comprobaciones:" << std::endl << std::endl;
 

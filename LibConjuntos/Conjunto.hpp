@@ -55,7 +55,7 @@ class Conjunto
         Conjunto Diferencia(Conjunto) const;        // Diferencia de 2 Conjuntos.
         Conjunto Complemento(Conjunto) const;       // Complemento de un Conjunto contra el Conjuntos Universo.
         Conjunto DiferenciaSim(Conjunto) const;     // Diferencia simétrica entre dos conjuntos
-        Conjunto ProductoCart(Conjunto) const;      // Producto Cartesiano de dos conjuntos
+        //Conjunto ProductoCart(Conjunto) const;      // Producto Cartesiano de dos conjuntos
         
         // Comprobaciones entre Conjuntos
         bool Igual(Conjunto) const;                 // Igualdad de 2 Conjuntos.
@@ -136,7 +136,6 @@ class Conjunto
             vec.clear();        // Limpiar el vector de elementos.
             conjs.clear();      // Limpiar el vector conjuntos
             no_elementos = 0;   // Reiniciar el no_elementos.
-            nom = "";           // Borrar el nombre del Conjunto.
         }
 };
 
@@ -149,6 +148,46 @@ class Conjunto
     adecuadamente las referencias dadas entre ambos archivos objetos.
 
     Eso dicen.
+*/
+
+/*
+    Par Ordenado
+
+    Estructura para almacenar los pares ordenados que son los elementos resultantes
+    de la operación de Producto Cartesiano.
+
+    TODO: Fix everything.
+*/
+
+/*
+template <class P>
+struct ParOrdenado
+{
+    std::vector<P> vecP;
+    std::vector< Conjunto<P> > vecC;
+
+    std::ostream& operator<<(std::ostream &o, const ParOrdenado<P> a)
+    {
+        o << "(";
+        if (vecP.size())
+        {
+            o << vecP[0] << ", ";
+            if((vecP.size()-1) > 0)
+            {
+                o << vecP[1] << ")";
+            }
+            else
+            {
+                o << vecC[0] << ")";
+            }
+        }
+        else
+        {
+            o << vecC[0] << ", " << vecC[1] << ")";
+        }
+        return o;
+    }
+};
 */
 
 // Destructor de la Clase.
@@ -243,7 +282,7 @@ void Conjunto<P>::setNombre(std::string n)
     {
         throw ExcepcionConjunto(ERROR_NOMBRE_DEMASIADO_CORTO);
     }
-    else if(n.length() >= 25)
+    else if(n.length() >= 35)
     {
         throw ExcepcionConjunto(ERROR_NOMBRE_DEMASIADO_LARGO);
     }
@@ -260,6 +299,7 @@ template <class P>
 Conjunto<P>& Conjunto<P>::operator=(const Conjunto<P>& otro)
 {
     limpiar();
+    //this->nom = otro.nom;
     this->vec = otro.vec;
     this->conjs = otro.conjs;
     this->no_elementos = otro.no_elementos;
@@ -373,7 +413,7 @@ Conjunto<P> Conjunto<P>::Union(Conjunto<P> p) const
     {
         throw ExcepcionConjunto(ERROR_CONJUNTO_VACIO);
     }
-    Conjunto<P> temp("Resultado");
+    Conjunto<P> temp("Resultado Unión");
 
     // Añadimos los elementos de ambos Conjuntos.
     // La función añadir, se encarga de no repetir
@@ -406,7 +446,7 @@ Conjunto<P> Conjunto<P>::Interseccion(Conjunto<P> p) const
     {
         throw ExcepcionConjunto(ERROR_CONJUNTO_VACIO);
     }
-    Conjunto<P> temp("Resultado");
+    Conjunto<P> temp("Resultado Intersección");
 
     for (int i = 0; i < vec.size(); ++i)
     {
@@ -433,7 +473,7 @@ Conjunto<P> Conjunto<P>::Diferencia(Conjunto<P> p) const
     {
         throw ExcepcionConjunto(ERROR_CONJUNTO_VACIO);
     }
-    Conjunto<P> temp("Resultado");
+    Conjunto<P> temp("Resultado Diferencia");
     
     for (int i = 0; i < vec.size(); ++i)
     {
@@ -456,18 +496,35 @@ Conjunto<P> Conjunto<P>::Diferencia(Conjunto<P> p) const
 template <class P>
 Conjunto<P> Conjunto<P>::DiferenciaSim(Conjunto<P> p) const
 {
-    Conjunto<P> res;
+    Conjunto<P> res(std::string("Resultado Diferencia Simétrica"));
     res = this->Diferencia(p);
     res = res.Union(p.Diferencia(*this));
     return res;
 }
 
 // Producto Cartesiano
+// TODO: FIND WTF TO DO HERE.
+/*
 template <class P>
-Conjunto<P> Conjunto<P>::ProductoCart(Conjunto<P> p) const
+Conjunto<P> > Conjunto<P>::ProductoCart(Conjunto<P> p) const
 {
-     
+    Conjunto< struct ParOrdenado<P> > res("Resultado Producto Cartesiano");
+    struct ParOrdenado<P> temp;
+
+    for (int i = 0; i < vec.size(); i++)
+    {
+        temp.clear();
+        for(int j = 0; j < p.vec.size(); j++)
+        {
+            temp.vecC.push_back(vec[i]);
+            temp.vecC.push_back(p.vec[j]);
+
+            res.agregar(temp);
+        }
+    }
+    return res;
 }
+*/
 
 // Complemento
 template <class P>
@@ -477,7 +534,7 @@ Conjunto<P> Conjunto<P>::Complemento(Conjunto<P> p) const
     {
         throw ExcepcionConjunto(ERROR_CONJUNTO_VACIO);
     }
-    Conjunto<P> temp("Resultado");
+    Conjunto<P> temp("Resultado Complemento");
     
     if (p.vec.size() <= 0 && p.vec.size() <= 0)
     {

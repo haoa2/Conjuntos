@@ -32,12 +32,13 @@ Una referencia rápida de la librería es la siguiente:
 | Intersección | Interseccion(Conjunto) | Conjunto | Devuelve el conjunto resultante de la operación Intersección.
 | Diferencia   | Diferencia(Conjunto)   | Conjunto | Devuelve el conjunto resultante de la operación Diferencia.
 | Diferencia Simétrica | DiferenciaSim(Conjunto) | Conjunto | Devuelve el conjunto resultante de la operación de Diferencia Simétrica.
-|Producto Cartesiano | ProductorCart(Conjunto) | Conjunto | Devuelve el conjunto resultante de la operación Producto Cartesiano. Sus elementos se convierten en std::pairs de la STL.
+|Producto Cartesiano* | ProductorCart(Conjunto) | Conjunto | Devuelve el conjunto resultante de la operación Producto Cartesiano. Sus elementos se convierten en std::pair's de la STL.
 | Complemento  | Complemento(Conjunto)  | Conjunto | Devuelve el conjunto resultante de la operación Complemento. 
 | Igualdad     | Igualdad(Conjunto)     | bool     | Devuelve cierto, si los conjuntos son iguales, falso en caso contrario.
 | Suconjunto   | Subconjunto(Conjunto)  | bool     | Devuelve cierto, si el conjunto es un subconjunto del conjunto proporcionado, devuelve falso en caso contrario.
 | Suconjunto Propio | SuconjuntoPropio(Conjunto) | bool | Devuelve cierto, si el conjunto es un subcojunto propio del conjunto proporcionado, falso en caso contrario.
 
+    *El Producto Cartesiano aún no funciona :c
 ## Ejemplos
 
 Los ejemplos del uso de la librería se encuentran dentro de la carpeta "Ejemplos" donde se
